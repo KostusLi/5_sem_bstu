@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Fetch</title>
+</head>
+<body>
+
+    <h1>Информация о студенте</h1>
+
+    <p id="name">Загрузка...</p>
+
+    <script>
+        fetch('/api/name')
+            .then(response => response.text())
+            .then(name => {
+                document.getElementById('name').textContent = name;
+            });
+    </script>
+
+</body>
+</html>

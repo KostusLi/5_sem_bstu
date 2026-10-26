@@ -1,0 +1,12 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Lab_03-client/Lab_03-client.vcxproj" Id="d3117b26-2aa6-4865-9447-bb66cf5ef7e0" />
+  <Project Path="Lab_03a.exe/Lab_03a.exe.vcxproj" Id="e8e1107f-6d9c-4654-90b8-7586768f23ca" />
+  <Project Path="Lab_03b/Lab_03b.vcxproj" Id="4a7bf8a3-c7c2-45b3-a60f-14cfcd294b23" />
+  <Project Path="Lab_03c/Lab_03c.vcxproj" Id="9eb6d356-b846-470a-9500-4dc11e785d45" />
+  <Project Path="Lab_03d-server/Lab_03d-server.vcxproj" Id="f249cb9e-0161-43c2-bad4-e0fc34a8899a" />
+  <Project Path="Lab_03x/Lab_03x.vcxproj" Id="698e0509-e8f2-4557-a567-b8aa507dbeae" />
+</Solution>

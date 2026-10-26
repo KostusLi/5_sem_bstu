@@ -1,0 +1,11 @@
+{
+  "name": "m0603-kostusli",
+  "version": "1.0.0",
+  "description": "Лабораторный модуль m0603 для отправки email через sendmail",
+  "main": "m0603.js",
+  "author": "kostusli",
+  "license": "MIT",
+  "dependencies": {
+    "sendmail": "^1.6.1"
+  }
+}

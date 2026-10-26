@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>XMLHttpRequest</title>
+</head>
+<body>
+
+    <h1>Информация о студенте</h1>
+
+    <p id="name">Загрузка...</p>
+
+    <script>
+        const xhr = new XMLHttpRequest();
+
+        xhr.open('GET', '/api/name', true);
+
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                document.getElementById('name').textContent = xhr.responseText;
+            }
+        };
+
+        xhr.send();
+    </script>
+
+</body>
+</html>

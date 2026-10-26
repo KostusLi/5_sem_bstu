@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="ASPA0010_1/ASPA0010_1.csproj" />
+  <Project Path="ResultsAuthenticate/ResultsAuthenticate.csproj" />
+  <Project Path="ResultsCollection/ResultsCollection.csproj" />
+</Solution>

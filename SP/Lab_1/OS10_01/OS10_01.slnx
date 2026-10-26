@@ -1,0 +1,11 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="OS10_01/OS10_01.vcxproj" Id="2adaebc3-861c-431a-af74-f5c5812598ae" />
+  <Project Path="OS10_02/OS10_02.vcxproj" Id="bfb6b4a7-7758-46dd-a1f7-6d559bb7ada3" />
+  <Project Path="OS10_03/OS10_03.vcxproj" Id="90ecdd93-85f2-4837-add9-ede97c0bdc01" />
+  <Project Path="OS10_04/OS10_04.vcxproj" Id="c9358d02-44ee-4335-9428-746010bb1513" />
+  <Project Path="OS10_HTAPI/OS10_HTAPI.vcxproj" Id="9704095d-a7b4-4a9e-8944-af1cf829d0a4" />
+</Solution>

@@ -1,0 +1,12 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="OS11_02/OS11_02.vcxproj" />
+  <Project Path="OS11_03/OS11_03.vcxproj" />
+  <Project Path="OS11_04/OS11_04.vcxproj" />
+  <Project Path="OS11_CREATE/OS11_CREATE.vcxproj" />
+  <Project Path="OS11_HTAPI/OS11_HTAPI.vcxproj" />
+  <Project Path="OS11_START/OS11_START.vcxproj" />
+</Solution>

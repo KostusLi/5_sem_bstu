@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Лабораторная 04-02</title>
+</head>
+<body>
+    <div class="card">
+        <h2>Добавить строку (POST)</h2>
+        <input type="text" id="add-name" placeholder="Имя">
+        <input type="date" id="add-bday">
+        <button class="success" onclick="addRow()">Добавить</button>
+    </div>
+
+    <div class="card">
+        <h2>Получить все строки (GET)</h2>
+        <button onclick="getAll()">Обновить список</button>
+        <div id="table-container"></div>
+    </div>
+
+    <div class="card">
+        <h2>Обновить строку (PUT)</h2>
+        <input type="number" id="upd-id" placeholder="ID" oninput="fillFromId()">
+        <input type="text" id="upd-name" placeholder="Новое имя">
+        <input type="date" id="upd-bday">
+        <button onclick="updateRow()">Обновить</button>
+    </div>
+
+    <div class="card">
+        <h2>Удалить строку (DELETE)</h2>
+        <input type="number" id="del-id" placeholder="ID">
+        <button class="danger" onclick="deleteRow()">Удалить</button>
+    </div>
+
+    <div class="card">
+        <h2>Ответ сервера</h2>
+        <pre id="result">Здесь будет результат запроса...</pre>
+    </div>
+
+    <script>
+        const API = '/api/db';
+
+
+        async function fillFromId() {
+            const id = parseInt(document.getElementById('upd-id').value, 10);
+
+            if (!id) {
+                document.getElementById('upd-name').value = '';
+                document.getElementById('upd-bday').value = '';
+                return;
+            }
+
+            try {
+                const res = await fetch(API);
+                const rows = await res.json();
+
+                const row = rows.find(r => r.id === id);
+
+                if (!row) {
+                    document.getElementById('upd-name').value = '';
+                    document.getElementById('upd-bday').value = '';
+                    return;
+                }
+
+                document.getElementById('upd-name').value = row.name;
+                document.getElementById('upd-bday').value = row.bday;
+
+            } catch (err) {
+                showResult({ error: err.message });
+            }
+        }
+
+        function showResult(data) {
+            document.getElementById('result').textContent =
+                JSON.stringify(data, null, 2);
+        }
+
+        async function getAll() {
+            try {
+                const res = await fetch(API);
+                const data = await res.json();
+                showResult(data);
+                renderTable(data);
+            } catch (err) {
+                showResult({ error: err.message });
+            }
+        }
+
+        async function addRow() {
+            const name = document.getElementById('add-name').value.trim();
+            const bday = document.getElementById('add-bday').value;
+
+            if (!name || !bday) {
+                showResult({ error: 'Заполните имя и дату' });
+                return;
+            }
+
+            try {
+                const res = await fetch(API, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, bday })
+                });
+                const data = await res.json();
+                showResult(data);
+
+                document.getElementById('add-name').value = '';
+                document.getElementById('add-bday').value = '';
+                getAll();
+            } catch (err) {
+                showResult({ error: err.message });
+            }
+        }
+
+        async function updateRow() {
+            const id = parseInt(document.getElementById('upd-id').value, 10);
+            const name = document.getElementById('upd-name').value.trim();
+            const bday = document.getElementById('upd-bday').value;
+
+            if (!id) {
+                showResult({ error: 'Введите id' });
+                return;
+            }
+
+            const payload = { id };
+            if (name) payload.name = name;
+            if (bday) payload.bday = bday;
+
+            try {
+                const res = await fetch(API, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                showResult(data);
+
+                document.getElementById('upd-id').value = '';
+                document.getElementById('upd-name').value = '';
+                document.getElementById('upd-bday').value = '';
+                getAll();
+            } catch (err) {
+                showResult({ error: err.message });
+            }
+        }
+
+        async function deleteRow() {
+            const id = parseInt(document.getElementById('del-id').value, 10);
+
+            if (!id) {
+                showResult({ error: 'Введите id' });
+                return;
+            }
+
+            try {
+                const res = await fetch(`${API}?id=${id}`, {
+                    method: 'DELETE'
+                });
+                const data = await res.json();
+                showResult(data);
+
+                document.getElementById('del-id').value = '';
+                getAll();
+            } catch (err) {
+                showResult({ error: err.message });
+            }
+        }
+
+        function renderTable(rows) {
+            const container = document.getElementById('table-container');
+
+            if (!Array.isArray(rows) || rows.length === 0) {
+                container.innerHTML = '<p>Нет данных</p>';
+                return;
+            }
+
+            let html = '<table><tr><th>ID</th><th>Имя</th><th>Дата рождения</th></tr>';
+            rows.forEach(row => {
+                html += `<tr><td>${row.id}</td><td>${row.name}</td><td>${row.bday}</td></tr>`;
+            });
+            html += '</table>';
+
+            container.innerHTML = html;
+        }
+
+        window.addEventListener('DOMContentLoaded', getAll);
+    </script>
+</body>
+</html>

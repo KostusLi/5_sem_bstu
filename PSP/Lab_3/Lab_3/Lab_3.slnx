@@ -1,0 +1,10 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Lab_3/Lab_3.vcxproj" Id="c59346be-e3f0-4c2b-8da3-a9bd91972973" />
+  <Project Path="Lab_3_Client/Lab_3_Client.vcxproj" Id="2820aa11-d11d-4bd3-9b59-015998f118be" />
+  <Project Path="Lossclient/Lossclient.vcxproj" Id="07212cde-bbcb-47a6-8166-ca2eb02fd2a8" />
+  <Project Path="Lossserver/Lossserver.vcxproj" Id="25cfbe59-3dbe-4953-8ff3-ad8c3eece474" />
+</Solution>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery AJAX</title>
+</head>
+<body>
+
+    <h1>Информация о студенте</h1>
+
+    <p id="name">Загрузка...</p>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $.ajax({
+            url: '/api/name',
+            method: 'GET',
+            success: function (data) {
+                document.getElementById('name').textContent = data;
+            }
+        });
+    </script>
+
+</body>
+</html>

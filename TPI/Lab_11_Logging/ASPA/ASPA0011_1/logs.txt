@@ -1,0 +1,17 @@
+~~~~AVE MARIA!~~~~
+[1] 02.10.2026 20:09:33 | Information | Старт приложения.
+[2] 02.10.2026 20:09:34 | Information | Now listening on: https://localhost:7244
+[3] 02.10.2026 20:09:34 | Information | Now listening on: http://localhost:5268
+[4] 02.10.2026 20:09:34 | Information | Application started. Press Ctrl+C to shut down.
+[5] 02.10.2026 20:09:34 | Information | Hosting environment: Development
+[6] 02.10.2026 20:09:34 | Information | Content root path: D:\5_sem_bstu\TPI\Lab_11_Logging\ASPA\ASPA0011_1
+[1] 03.10.2026 13:57:39 | Information | Старт приложения.
+[2] 03.10.2026 13:57:40 | Information | Now listening on: https://localhost:7244
+[3] 03.10.2026 13:57:40 | Information | Now listening on: http://localhost:5268
+[4] 03.10.2026 13:57:40 | Information | Application started. Press Ctrl+C to shut down.
+[5] 03.10.2026 13:57:40 | Information | Hosting environment: Development
+[6] 03.10.2026 13:57:40 | Information | Content root path: D:\5_sem_bstu\TPI\Lab_11_Logging\ASPA\ASPA0011_1
+[7] 03.10.2026 14:03:55 | Information | Создан канал 2599d309-be5c-418f-ad13-4ba5b119108f.
+[8] 03.10.2026 14:05:58 | Information | Создан канал afce1923-a448-4636-9e31-483948bf5258.
+[9] 03.10.2026 14:06:05 | Information | Создан канал 9b33ae51-02f2-474b-88ba-b7f961b2b253.
+[10] 03.10.2026 14:09:56 | Information | Состояние всех каналов изменено на ACTIVE.
