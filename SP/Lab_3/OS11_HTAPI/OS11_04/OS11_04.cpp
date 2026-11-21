@@ -22,11 +22,9 @@ int main(int argc, char* argv[])
         int keyNum = rand() % 50;
         HT::Element* searchEl = new HT::Element(&keyNum, 4);
 
-        // Сначала читаем
         HT::Element* readEl = HT::Get(ht, searchEl);
 
         if (readEl) {
-            // Берем текущее значение и увеличиваем на 1
             int currentPayload = *(int*)readEl->payload;
             int newPayload = currentPayload + 1;
 
@@ -34,7 +32,6 @@ int main(int argc, char* argv[])
                 cout << "[UPDATE] Key: " << keyNum << " | " << currentPayload << " -> " << newPayload << " SUCCESS\n";
             }
 
-            // Очищаем память, которую выделил Get
             delete[](char*)readEl->key;
             delete[](char*)readEl->payload;
             delete readEl;

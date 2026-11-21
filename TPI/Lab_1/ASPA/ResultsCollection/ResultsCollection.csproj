@@ -6,6 +6,7 @@
     <Nullable>enable</Nullable>
     <PackageId>BSTU.Results.Collection</PackageId>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
 </Project>

@@ -1,0 +1,11 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="ClientNP/ClientNP.vcxproj" Id="dfca73de-3e46-42af-ba26-00441d155322" />
+  <Project Path="ClientT/ClientT.vcxproj" Id="998c37fa-e5e5-4aa9-849c-d052097a786a" />
+  <Project Path="ClientTy/ClientTy.vcxproj" Id="faf9effd-98d1-4a92-ac10-7144213863b3" />
+  <Project Path="ConcurrentServer/ConcurrentServer.vcxproj" Id="dd827cca-4184-4e72-bda1-81b4d7d4fa14" />
+  <Project Path="ServiceLibrary/ServiceLibrary.vcxproj" Id="99ab72de-1bbc-409b-aa00-511f12777dce" />
+</Solution>

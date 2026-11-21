@@ -6,7 +6,7 @@ namespace ResultsCollection
     {
         private readonly string _filePath;
 
-        private readonly object _fileLock = new object();
+        private static readonly object _fileLock = new object();
 
         public Results()
         {
@@ -78,18 +78,22 @@ namespace ResultsCollection
             }
         }
 
-        public bool DeleteById(int key)
+        public KeyValuePair<int, string>? DeleteById(int key)
         {
             lock (_fileLock)
             {
                 var data = LoadData();
-                if (!data.Remove(key))
+                if (!data.ContainsKey(key))
                 {
-                    return false;
+                    return null;
                 }
 
+                var removeData = data[key];
+
+                data.Remove(key);
+
                 SaveData(data);
-                return true;
+                return new KeyValuePair<int, string>(key, removeData);
             }
         }
     }

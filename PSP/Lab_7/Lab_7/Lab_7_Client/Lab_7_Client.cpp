@@ -2,41 +2,48 @@
 #include <iostream>
 #include <string>
 
-int main() 
-{
-    setlocale(LC_ALL, "ru");
+int main() {
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
     HANDLE hFile;
     DWORD bytesWritten;
-    std::string message = "Это твоя бибикаааа? Бимбомбом";
+    std::string computerName;
+    std::string message;
 
-    // Подключение клиента к почтовому ящику[cite: 5]
+    std::cout << "Введите имя компьютера-сервера (или точку '.' для тестирования на одном ПК): ";
+    std::getline(std::cin, computerName);
+
+    std::string mailslotPath = "\\\\" + computerName + "\\mailslot\\test_mailslot";
+
+    std::cout << "Попытка подключения к: " << mailslotPath << std::endl;
+
     hFile = CreateFileA(
-        "\\\\.\\mailslot\\test_mailslot", // локальное имя почтового ящика[cite: 3, 5]
-        GENERIC_WRITE,                     // режим доступа: запись[cite: 5]
-        FILE_SHARE_READ,                   // режим совместного использования[cite: 5]
-        NULL,                              // атрибуты безопасности по умолчанию[cite: 5]
-        OPEN_EXISTING,                     // открытие существующего ящика[cite: 5]
+        mailslotPath.c_str(),
+        GENERIC_WRITE,
+        FILE_SHARE_READ,
+        NULL,
+        OPEN_EXISTING,
         FILE_ATTRIBUTE_NORMAL,
         NULL
     );
 
     if (hFile == INVALID_HANDLE_VALUE) {
-        std::cout << "Ошибка подключения к Mailslot (сервер запущен, мудила, или нет?). Код ошибки: " << GetLastError() << std::endl;
+        std::cout << "Ошибка подключения к Mailslot. Код ошибки: " << GetLastError() << std::endl;
         system("pause");
         return 1;
     }
 
-    std::cout << "Связь с Mailslot установлена. Отправка данных..." << std::endl;
+    std::cout << "Связь установлена! Введите сообщение: ";
+    std::getline(std::cin, message);
 
-    // Запись данных в почтовый сервер[cite: 2]
     if (WriteFile(hFile, message.c_str(), message.length(), &bytesWritten, NULL)) {
-        std::cout << "Сообщение отправлено успешно. Количество записанных байт: " << bytesWritten << std::endl;
+        std::cout << "Сообщение отправлено успешно. Записано байт: " << bytesWritten << std::endl;
     }
     else {
-        std::cout << "Ошибка при записи функцией WriteFile. Код ошибки: " << GetLastError() << std::endl;
+        std::cout << "Ошибка при отправке функцией WriteFile. Код ошибки: " << GetLastError() << std::endl;
     }
 
-    // Закрытие дескриптора[cite: 2]
     CloseHandle(hFile);
 
     system("pause");

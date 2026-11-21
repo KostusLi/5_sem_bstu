@@ -21,7 +21,6 @@ int main(int argc, char* argv[])
     while (true) {
         int keyNum = rand() % 50;
 
-        // Для удаления данные не нужны, только ключ
         HT::Element* el = new HT::Element(&keyNum, 4);
 
         if (HT::Delete(ht, el)) {

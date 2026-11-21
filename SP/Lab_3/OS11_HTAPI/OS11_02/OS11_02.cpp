@@ -2,7 +2,6 @@
 #include <Windows.h>
 #include "HT.h"
 
-// НЕ ЗАБУДЬ ПОМЕНЯТЬ ПУТЬ ДО .lib!
 #pragma comment(lib, "D:\\5_sem_bstu\\SP\\Lab_3\\OS11_HTAPI\\x64\\Debug\\OS11_HTAPI.lib")
 
 using namespace std;
@@ -20,7 +19,6 @@ int main(int argc, char* argv[])
     cout << "OS11_02 (INSERT) STARTED. Press Ctrl+C to stop.\n\n";
 
     while (true) {
-        // Генерируем ключ (от 0 до 49) и данные (всегда 0)
         int keyNum = rand() % 50;
         int payload = 0;
 
@@ -34,7 +32,7 @@ int main(int argc, char* argv[])
         }
 
         delete el;
-        Sleep(1000); // Спим 1 секунду по заданию
+        Sleep(1000);
     }
 
     return 0;

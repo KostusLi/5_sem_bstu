@@ -36,7 +36,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<ResultsCollection.Results>();
-builder.Services.AddScoped<ResultsAuthenticate.Authenticate>();
+builder.Services.AddScoped<Authenticate>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

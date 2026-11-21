@@ -3,10 +3,10 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="OS11_02/OS11_02.vcxproj" />
-  <Project Path="OS11_03/OS11_03.vcxproj" />
-  <Project Path="OS11_04/OS11_04.vcxproj" />
-  <Project Path="OS11_CREATE/OS11_CREATE.vcxproj" />
-  <Project Path="OS11_HTAPI/OS11_HTAPI.vcxproj" />
-  <Project Path="OS11_START/OS11_START.vcxproj" />
+  <Project Path="OS11_02/OS11_02.vcxproj" Id="945260e6-336b-4d6b-9f40-9fc4554839a5" />
+  <Project Path="OS11_03/OS11_03.vcxproj" Id="633dd26a-b5d6-4aea-808a-f8f4d1e7a918" />
+  <Project Path="OS11_04/OS11_04.vcxproj" Id="91e31aea-adc2-46e5-8af2-fc4373d145bc" />
+  <Project Path="OS11_CREATE/OS11_CREATE.vcxproj" Id="66bde763-847b-412e-8796-97325daa4e82" />
+  <Project Path="OS11_HTAPI/OS11_HTAPI.vcxproj" Id="87ab1cc5-3983-4585-bd68-9b530ebee08a" />
+  <Project Path="OS11_START/OS11_START.vcxproj" Id="bb07496e-bddf-4615-acb0-6842b6d418cf" />
 </Solution>

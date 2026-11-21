@@ -1,0 +1,10 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="OS12_02/OS12_02.vcxproj" Id="1bb8fc87-90c1-4574-b90b-fafb85bb8bf1" />
+  <Project Path="OS12_04/OS12_04.vcxproj" Id="4f7c3ac9-ef2d-4d4f-9b0f-69e8aedacd3a" />
+  <Project Path="OS12_COM/OS12_COM.vcxproj" Id="dfdc8642-1fe7-4c66-ab5f-1d056dfad075" />
+  <Project Path="OS12_LIB/OS12_LIB.vcxproj" Id="d7846600-792c-4ee4-845e-28f9dfffe181" />
+</Solution>

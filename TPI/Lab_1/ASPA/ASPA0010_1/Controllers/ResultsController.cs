@@ -34,6 +34,7 @@ namespace ASPA0010_1.Controllers
         }
 
         [HttpGet("SignOut")]
+        [Authorize]
         public async Task<IActionResult> SignOut()
         {
             string shitJwt = await _auth.SignOutAsync();
@@ -52,16 +53,16 @@ namespace ASPA0010_1.Controllers
             }
             else
             {
-                return NotFound();
+                return NoContent();
             }
             
         }
 
-        [HttpGet("{key}")]
+        [HttpGet("{k:int}")]
         [Authorize(Roles = "READER")]
-        public IActionResult GetDyId(int key)
+        public IActionResult GetDyId(int k)
         {
-            var ris = _results.GetById(key);
+            var ris = _results.GetById(k);
 
             if (ris != null)
             {
@@ -75,30 +76,43 @@ namespace ASPA0010_1.Controllers
 
         [HttpPost]
         [Authorize(Roles = "WRITER")]
-        public IActionResult AddResults(string value)
+        public IActionResult AddResults([FromBody] ValueModel model)
         {
-            var ris = _results.Add(value);
-            return Created();
+            if(model is null || string.IsNullOrWhiteSpace(model.Value))
+            {
+                return BadRequest();
+            }
+
+            var ris = _results.Add(model.Value);
+
+            return Created($"/api/Results/{ris.Key}", ris);
         }
 
-        [HttpPut("{key}")]
+        [HttpPut("{k:int}")]
         [Authorize(Roles = "WRITER")]
-        public IActionResult ChangeResult(int key, string value)
+        public IActionResult ChangeResult(int k, [FromBody] ValueModel model)
         {
-            bool check = _results.Change(key, value);
+            if(model is null || string.IsNullOrWhiteSpace(model.Value))
+            {
+                return BadRequest();
+            }
+
+            var check = _results.Change(k, model.Value);
+
             if(check)
             {
-                return Ok(check);
+                return Ok(new KeyValuePair<int, string>(k, model.Value!));
             }
-            return BadRequest();
+
+            return NotFound();
         }
 
-        [HttpDelete("{key}")]
+        [HttpDelete("{k:int}")]
         [Authorize(Roles = "WRITER")]
-        public IActionResult DeleteResult(int key)
+        public IActionResult DeleteResult(int k)
         {
-            bool check = _results.DeleteById(key);
-            return check ? Ok() : BadRequest();
+            var removeData = _results.DeleteById(k);
+            return (removeData is not null) ? Ok(removeData) : NotFound();
         }
 
     }

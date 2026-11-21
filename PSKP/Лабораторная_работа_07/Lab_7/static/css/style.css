@@ -1,0 +1,22 @@
+body {
+  font-family: system-ui, sans-serif;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  background: #f7f7f9;
+  color: #222;
+}
+h1 { color: #2a5db0; }
+h2 { margin-top: 2rem; color: #444; }
+pre {
+  background: #1e1e1e;
+  color: #d4d4d4;
+  padding: 1rem;
+  border-radius: 6px;
+}
+img{
+    width: 600px;
+    height: 400px;
+}
+img, video { border: 1px solid #ccc; border-radius: 6px; }
+a { color: #2a5db0; }

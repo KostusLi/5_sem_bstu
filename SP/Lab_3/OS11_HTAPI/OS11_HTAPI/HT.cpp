@@ -46,7 +46,6 @@ namespace HT
     HANDLE OpenOrCreateMutex(const char* filename) {
         char mutexName[512];
         string name(filename);
-        // Убираем слэши из имени файла для корректного имени мьютекса
         for (size_t i = 0; i < name.length(); i++) {
             if (name[i] == '\\' || name[i] == '/' || name[i] == ':') name[i] = '_';
         }

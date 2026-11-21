@@ -1,0 +1,14 @@
+<Solution>
+  <Configurations>
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Lab_06a/Lab_06a.vcxproj" Id="fc5fa042-f7a9-4713-b3f1-b8071d972480" />
+  <Project Path="Lab_06b/Lab_06b.vcxproj" Id="0242a185-b4ea-4a54-a2ba-ae6dcab760d6" />
+  <Project Path="Lab_06c/Lab_06c.vcxproj" Id="5d6f35f9-70c0-4665-8b86-0ddcb1a177a3" />
+  <Project Path="Lab_06d/Lab_06d.vcxproj" Id="26cf3d60-73ab-4104-863e-197dc551739d" />
+  <Project Path="Lab_06_bank/Lab_06_bank.vcxproj" Id="7b743a5a-2d8f-43be-b4ec-016853fb33d8" />
+  <Project Path="Lab_06_bar/Lab_06_bar.vcxproj" Id="b4f78d43-9660-44ed-8dba-5cd318a40e02" />
+  <Project Path="Lab_06_conds/Lab_06_conds.vcxproj" Id="10a4335c-b72c-46cf-9712-4e0db9b9cdb6" />
+  <Project Path="Lab_06_dl/Lab_06_dl.vcxproj" Id="72ccdd39-4198-40ac-b73a-4cef6c72d643" />
+</Solution>

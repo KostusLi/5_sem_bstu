@@ -1,7 +1,6 @@
 ﻿#include <iostream>
 #include "HT.h"
 
-// ВСТАВЬ СВОЙ ПУТЬ ДО .lib ФАЙЛА
 #pragma comment(lib, "D:\\5_sem_bstu\\SP\\Lab_3\\OS11_HTAPI\\x64\\Debug\\OS11_HTAPI.lib")
 
 using namespace std;
@@ -15,11 +14,9 @@ int main(int argc, char* argv[])
 
     const char* filename = argv[1];
 
-    // Запускаем хранилище (вызов функции Open из DLL)
     HT::HTHANDLE* ht = HT::Open(filename);
 
     if (ht) {
-        // Требуемый вывод по методичке (параметры подтянутся сами из заголовка файла)
         cout << "HT-Storage Start filename=" << filename
             << ", snapshotinterval=" << ht->SecSnapshotInterval
             << " capacity=" << ht->Capacity
@@ -27,9 +24,9 @@ int main(int argc, char* argv[])
             << ", maxdatalength=" << ht->MaxPayloadLength << endl;
 
         cout << "\nPress any key to exit...\n";
-        cin.get(); // Ждем ввода любого символа
+        cin.get();
 
-        HT::Close(ht); // После ввода символа закрываем хранилище
+        HT::Close(ht);
     }
     else {
         cout << "Error starting HT-Storage\n";
